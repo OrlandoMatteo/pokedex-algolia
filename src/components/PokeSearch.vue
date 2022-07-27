@@ -5,7 +5,7 @@
     :pokemon="pokeToShow"
     @some-event="callback"
   />
-  <ais-instant-search :search-client="searchClient" index-name="pokeindex">
+  <ais-instant-search :search-client="searchClient" index-name="pokeindex_v2">
     <div class="filters">
       <h3><b class="fa fa-chevron-right"></b> Types</h3>
 	  <hr>
