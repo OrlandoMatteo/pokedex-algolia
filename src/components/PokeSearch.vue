@@ -38,13 +38,13 @@ export default {
         "013c326cf0fd2640cd338db403fe0add"
       ),
       toggleValue: false,
-      pokeToShow: { types: [""], evos: [] },
+      pokeToShow: null,
     };
   },
   methods: {
     callback: function (pokemon) {
       if (!pokemon) {
-        this.pokeToShow = { types: [""], evos: [] };
+        this.pokeToShow = null;
       }
       //toggle the value of this.toggleValue
       this.toggleValue = !this.toggleValue;

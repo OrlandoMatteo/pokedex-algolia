@@ -7,7 +7,7 @@ import { vfmPlugin } from 'vue-final-modal'
 
 
 
-app= createApp(App)
+const app= createApp(App)
 app.use(InstantSearch)
 app.use(vfmPlugin)
 app.mount('#app')

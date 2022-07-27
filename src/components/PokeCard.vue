@@ -26,7 +26,7 @@ export default {
   }),
   computed: {
 	gradient() {
-		if (this.pokemon!=undefined){
+		if (this.pokemon!=null){
 			if (this.pokemon.types.length>1){
 				var firstColor =this.colours[this.pokemon.types[0]]+"80";
 				var secondColor =this.colours[this.pokemon.types[1]]+"80";
@@ -45,8 +45,8 @@ export default {
   },
 };
 </script> 
- <template>
-  <div class="card rounded" :style="{'background-image':gradient}" v-if="pokemon!=undefined">
+ <template >
+  <div class="card rounded" :style="{'background-image':gradient}" v-if="pokemon!=null">
 	  <h1>{{ pokemon.name }}</h1>
     <div>
       <img :src="pokemon.imageURL" class="pokeImg"/>
@@ -62,10 +62,58 @@ export default {
           >{{ t }}</span
         >
       </li>
-		  <li>Height: {{ pokemon.heightm }} m</li>
-		  <li>Weight: {{ pokemon.weightkg }} Kg</li>
-		  <li v-if="pokemon.prevo!=''">Previous evolution: {{ pokemon.prevo }}</li>
+		  <li v-if="pokemon.prevo!=null">Previous evolution: {{ pokemon.prevo }}</li>
 		  <li v-if="pokemon.evos.length!=0" >Next evolution: {{ pokemon.evos[0] }}</li>
+      <li v-if="pokemon.otherFormes.length!=0">Next evolution: {{ pokemon.otherFormes[0]}}</li>
+      <h4>Basic statistics</h4>
+		  <!-- <li>Height: <span class="data-span"> {{ pokemon.heightm }} m</span></li>
+		  <li>Weight: <span class="data-span"> {{ pokemon.weightkg }} Kg</span></li>
+      <li>HP: <span class="data-span"> {{ pokemon.baseStats.hp}}</span></li>
+      <li>Attack: <span class="data-span"> {{ pokemon.baseStats.atk}}</span></li>
+      <li>Defense: <span class="data-span"> {{ pokemon.baseStats.def}}</span></li>
+      <li>Speed of attack: <span class="data-span"> {{ pokemon.baseStats.spa}}</span></li>
+      <li>Speed of defense: <span class="data-span"> {{ pokemon.baseStats.spd}}</span></li>
+      <li>Speed: <span class="data-span"> {{ pokemon.baseStats.spe}}</span></li> -->
+      <table>
+        <td>
+          <tr>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Height</td>
+            <td class="data-cell">{{pokemon.heightm}}</td>
+          </tr>
+          <tr>
+            <td>Weight</td>
+            <td class="data-cell">{{pokemon.weightkg}}</td>
+          </tr>
+          <tr>
+            <td>HP</td>
+            <td class="data-cell">{{pokemon.baseStats.hp}}</td>
+          </tr>
+          <tr>
+            <td>Attack</td>
+            <td class="data-cell">{{pokemon.baseStats.atk}}</td>
+          </tr>
+          <tr>
+            <td>Defense</td>
+            <td class="data-cell">{{pokemon.baseStats.def}}</td>
+          </tr>
+          <tr>
+            <td>Speed of attack</td>
+            <td class="data-cell">{{pokemon.baseStats.spa}}</td>
+          </tr>
+          <tr>
+            <td>Speed of defense</td>
+            <td class="data-cell">{{pokemon.baseStats.spd}}</td>
+          </tr>
+          <tr>
+            <td>Speed</td>
+            <td class="data-cell">{{pokemon.baseStats.spe}}</td>
+          </tr>
+        </td>
+      </table>
 	  </p>
     </div>
   </div>
@@ -113,4 +161,13 @@ li{
 .centered{
 	text-align: center;
 }
+h4{
+  font-weight: 900;
+}
+
+.data-cell{
+  text-align: right;
+width: 100px;
+}
+
 </style>

@@ -1,7 +1,10 @@
-<script setup>
-import HelloWorld from "./components/HelloWorld.vue";
-import TheWelcome from "./components/TheWelcome.vue";
+<script>
 import PokeSearch from "./components/PokeSearch.vue";
+export default{
+  components: {
+    PokeSearch
+  }
+}
 </script>
 
 <template>
